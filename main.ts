@@ -6,9 +6,12 @@ function respawn () {
     mySprite = sprites.create(assets.image`myImage`, SpriteKind.Player)
     mySprite.setPosition(25, 120)
     scene.cameraFollowSprite(mySprite)
+    tiles.setCurrentTilemap(tilemap`level`)
+    info.setScore(0)
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     info.changeScoreBy(1)
+    tiles.setTileAt(location, assets.tile`transparency16`)
 })
 let mySprite: Sprite = null
 mySprite = sprites.create(assets.image`myImage`, SpriteKind.Player)
